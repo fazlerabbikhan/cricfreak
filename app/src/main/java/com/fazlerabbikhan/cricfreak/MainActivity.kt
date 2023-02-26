@@ -64,18 +64,6 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.findNavController()
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bottomNavigation.setupWithNavController(navController)
-
-//        val periodicWorkRequest =
-//            PeriodicWorkRequest.Builder(NewsApiCallWorker::class.java, 5, TimeUnit.HOURS).build()
-//        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
-//            "periodicNewsAPICall",
-//            ExistingPeriodicWorkPolicy.KEEP,
-//            periodicWorkRequest
-//        )
-//        one time call
-//        val work = OneTimeWorkRequestBuilder<NewsApiCallWorker>()
-//            .build()
-//        WorkManager.getInstance(this).enqueue(work)
     }
 
     override fun onSupportNavigateUp(): Boolean {
