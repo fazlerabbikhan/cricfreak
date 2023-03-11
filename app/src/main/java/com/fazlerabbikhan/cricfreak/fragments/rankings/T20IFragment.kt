@@ -1,6 +1,7 @@
 package com.fazlerabbikhan.cricfreak.fragments.rankings
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -38,7 +39,11 @@ class T20IFragment : Fragment() {
         viewModel.t20irankings.observe(viewLifecycleOwner){
             val adapterViewState = t20iRecyclerView.layoutManager?.onSaveInstanceState()
             t20iRecyclerView.layoutManager?.onRestoreInstanceState(adapterViewState)
-            t20iRecyclerView.adapter = T20IAdapter(it[0].team)
+            try{
+                t20iRecyclerView.adapter = T20IAdapter(it[0].team)
+            } catch (e: java.lang.Exception) {
+                Log.d("Exception","$e")
+            }
         }
     }
 

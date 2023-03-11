@@ -81,6 +81,10 @@ class RecentFragment : Fragment() {
                 }
             }
         }
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            //getTypeArticles(type)
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
     }
 
     override fun onDestroyView() {

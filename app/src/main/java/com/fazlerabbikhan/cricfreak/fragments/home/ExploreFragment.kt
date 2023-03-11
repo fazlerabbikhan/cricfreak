@@ -34,8 +34,15 @@ class ExploreFragment : Fragment() {
         exploreRecyclerView = binding.teamRecycler
 
         viewModel.catchTeams()
+        viewModel.readTeamData
 
         viewModel.teams.observe(viewLifecycleOwner){
+            val adapterViewState = exploreRecyclerView.layoutManager?.onSaveInstanceState()
+            exploreRecyclerView.layoutManager?.onRestoreInstanceState(adapterViewState)
+            exploreRecyclerView.adapter = ExploreAdapter(it)
+        }
+
+        viewModel.readTeamData.observe(viewLifecycleOwner){
             val adapterViewState = exploreRecyclerView.layoutManager?.onSaveInstanceState()
             exploreRecyclerView.layoutManager?.onRestoreInstanceState(adapterViewState)
             exploreRecyclerView.adapter = ExploreAdapter(it)

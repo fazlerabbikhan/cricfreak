@@ -1,12 +1,14 @@
 package com.fazlerabbikhan.cricfreak.fragments.rankings
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
+import com.fazlerabbikhan.cricfreak.adapter.rankings.T20IAdapter
 import com.fazlerabbikhan.cricfreak.adapter.rankings.TestAdapter
 import com.fazlerabbikhan.cricfreak.databinding.FragmentTestBinding
 import com.fazlerabbikhan.cricfreak.viewmodel.CricViewModel
@@ -38,7 +40,11 @@ class TestFragment : Fragment() {
         viewModel.testrankings.observe(viewLifecycleOwner){
             val adapterViewState = testRecyclerView.layoutManager?.onSaveInstanceState()
             testRecyclerView.layoutManager?.onRestoreInstanceState(adapterViewState)
-            testRecyclerView.adapter = TestAdapter(it[0].team)
+            try{
+                testRecyclerView.adapter = TestAdapter(it[0].team)
+            } catch (e: java.lang.Exception) {
+                Log.d("Exception","$e")
+            }
         }
     }
 

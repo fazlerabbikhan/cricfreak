@@ -40,6 +40,10 @@ class UpcomingFragment : Fragment() {
             upcomingRecyclerView.layoutManager?.onRestoreInstanceState(adapterViewState)
             upcomingRecyclerView.adapter = UpcomingAdapter(it)
         }
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            //getTypeArticles(type)
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
     }
 
     override fun onDestroyView() {

@@ -7,48 +7,55 @@
     android:layout_height="match_parent"
     tools:context=".fragments.matches.RecentFragment">
 
-    <LinearLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/league_buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="4dp"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button_international"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginEnd="2dp"
-                android:backgroundTint="@color/CornflowerBlue"
-                android:textColor="@color/White"
-                android:text="@string/button_t20i" />
+            <LinearLayout
+                android:id="@+id/league_buttons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="4dp"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/button_domestic"
-                android:layout_width="0dp"
+                <Button
+                    android:id="@+id/button_international"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="2dp"
+                    android:backgroundTint="@color/CornflowerBlue"
+                    android:textColor="@color/White"
+                    android:text="@string/button_t20i" />
+
+                <Button
+                    android:id="@+id/button_domestic"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="2dp"
+                    android:backgroundTint="@color/BurlyWood"
+                    android:textColor="@color/Black"
+                    android:text="@string/button_domestic" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recent_recycler"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginStart="2dp"
-                android:backgroundTint="@color/BurlyWood"
-                android:textColor="@color/Black"
-                android:text="@string/button_domestic" />
+                android:scrollbars="vertical"
+                app:layoutManager="LinearLayoutManager"
+                tools:listitem="@layout/card_recent" />
 
         </LinearLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recent_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            app:layoutManager="LinearLayoutManager"
-            tools:listitem="@layout/card_recent" />
-
-    </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </FrameLayout>

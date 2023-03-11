@@ -34,6 +34,8 @@ class PlayersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[CricViewModel::class.java]
 
+        viewModel.catchPlayers()
+
         // Search menu
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(object : MenuProvider {
@@ -54,7 +56,7 @@ class PlayersFragment : Fragment() {
 //                        filter data
                         val queryResult = mutableListOf<PlayersData>()
                         viewModel.players.value?.map {
-                            if (it.fullname?.contains(msg, ignoreCase = true) == true) {
+                            if (it.lastname?.contains(msg, ignoreCase = true) == true) {
                                 queryResult.add(it)
                             }
                         }

@@ -7,7 +7,7 @@ import com.fazlerabbikhan.cricfreak.global.Constant
 import com.fazlerabbikhan.cricfreak.model.leagues.LeagueData
 import com.fazlerabbikhan.cricfreak.model.teams.TeamData
 
-@Database(entities = [LeagueData::class, TeamData::class], version = 12, exportSchema = false)
+@Database(entities = [LeagueData::class, TeamData::class], version = 14, exportSchema = false)
 abstract class CricDatabase : RoomDatabase() {
     abstract fun getCricDao(): CricDao
 

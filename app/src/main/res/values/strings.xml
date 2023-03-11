@@ -24,6 +24,7 @@
     <string name="score">170/7</string>
     <string name="overs">(17.3)</string>
     <string name="live">LIVE</string>
+    <string name="live_note">Bangladesh need 1 wicket to win.</string>
     <string name="rank_text">Rank</string>
     <string name="team_text">Team</string>
     <string name="matches_text">Matches</string>

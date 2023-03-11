@@ -7,14 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".fragments.matches.UpcomingFragment">
 
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/upcoming_recycler"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:listitem="@layout/card_upcoming"
-        android:scrollbars="vertical"
-        app:layoutManager="LinearLayoutManager"/>
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/upcoming_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/card_upcoming"
+            android:scrollbars="vertical"
+            app:layoutManager="LinearLayoutManager"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,18 +11,15 @@ import com.fazlerabbikhan.cricfreak.model.teams.TeamData
 @Dao
 interface CricDao {
 
-    @Query("SELECT * FROM Leagues LIMIT 10")
+    @Query("SELECT * FROM Leagues")
     fun readLeagues(): LiveData<List<LeagueData>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addLeague(leagues: List<LeagueData>)
 
-    @Query("SELECT * FROM Teams LIMIT 10")
+    @Query("SELECT * FROM Teams")
     fun readTeams(): LiveData<List<TeamData>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addTeam(teams: List<TeamData>)
-
-//    @Query("SELECT * FROM Teams WHERE id = :id")
-//    fun readTeamById(id: Int): TeamEntity
 }

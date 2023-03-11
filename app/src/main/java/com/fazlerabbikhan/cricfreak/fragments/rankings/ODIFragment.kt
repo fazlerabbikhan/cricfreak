@@ -1,6 +1,7 @@
 package com.fazlerabbikhan.cricfreak.fragments.rankings
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.fazlerabbikhan.cricfreak.adapter.rankings.ODIAdapter
+import com.fazlerabbikhan.cricfreak.adapter.rankings.T20IAdapter
 import com.fazlerabbikhan.cricfreak.databinding.FragmentOdiBinding
 import com.fazlerabbikhan.cricfreak.viewmodel.CricViewModel
 
@@ -38,7 +40,11 @@ class ODIFragment : Fragment() {
         viewModel.odirankings.observe(viewLifecycleOwner){
             val adapterViewState = odiRecyclerView.layoutManager?.onSaveInstanceState()
             odiRecyclerView.layoutManager?.onRestoreInstanceState(adapterViewState)
-            odiRecyclerView.adapter = ODIAdapter(it[0].team)
+            try{
+                odiRecyclerView.adapter = ODIAdapter(it[0].team)
+            } catch (e: java.lang.Exception) {
+                Log.d("Exception","$e")
+            }
         }
     }
 

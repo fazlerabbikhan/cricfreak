@@ -64,8 +64,8 @@ interface CricApiService {
         @Query("api_token") apiKey: String
     ): Livescore
 
-    @GET("team-rankings?filter[type]=TEST")
-    suspend fun fetchTestRankings(
+    @GET("team-rankings?filter[type]=T20I")
+    suspend fun fetchT20IRankings(
         @Query("api_token") apiKey: String
     ): Ranking
 
@@ -74,8 +74,8 @@ interface CricApiService {
         @Query("api_token") apiKey: String
     ): Ranking
 
-    @GET("team-rankings?filter[type]=T20I")
-    suspend fun fetchT20IRankings(
+    @GET("team-rankings?filter[type]=TEST")
+    suspend fun fetchTestRankings(
         @Query("api_token") apiKey: String
     ): Ranking
 }

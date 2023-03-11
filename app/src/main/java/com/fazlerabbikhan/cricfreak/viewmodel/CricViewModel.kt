@@ -55,7 +55,7 @@ class CricViewModel(application: Application): AndroidViewModel(application){
     private val repository: CricRepository
 
     private val readLeagueData: LiveData<List<LeagueData>>
-    private val readTeamData: LiveData<List<TeamData>>
+    val readTeamData: LiveData<List<TeamData>>
 
     init{
         val cricDao = CricDatabase.getDatabase(application).getCricDao()
@@ -110,7 +110,7 @@ class CricViewModel(application: Application): AndroidViewModel(application){
         viewModelScope.launch {
             try {
                 _players.value = CricApi.retrofitService.fetchPlayers(Constant.TOKEN).data
-                Log.d("Api", "Upcoming: ${players.value?.size}")
+                Log.d("Api", "Players: ${players.value?.size}")
             }
             catch (e: java.lang.Exception) {
                 _players.value = listOf()

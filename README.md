@@ -6,4 +6,4 @@ Key Features:
 * View scoreboard in details
 * Get Rankings in three different formats
 
-![Daily News](./screenshots/CricFreak.png)
+![CricFreak](./screenshots/CricFreak.png)
